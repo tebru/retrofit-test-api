@@ -40,5 +40,6 @@
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
         "symfony-assets-install": "relative"
-    }
+    },
+    "bin": ["bin/console"]
 }

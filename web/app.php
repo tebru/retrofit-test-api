@@ -5,7 +5,13 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @var Composer\Autoload\ClassLoader
  */
-$loader = require __DIR__.'/../app/autoload.php';
+$dirs = [__DIR__ . '/../vendor', __DIR__ . '/../../..'];
+foreach ($dirs as $dir) {
+    $file = $dir . '/autoload.php';
+    if (file_exists($file)) {
+        $loader = require $file;
+    }
+}
 include_once __DIR__.'/../var/bootstrap.php.cache';
 
 $kernel = new AppKernel('prod', false);
